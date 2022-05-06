@@ -18,9 +18,9 @@ i18n:
   default_locale: en
 
 collections:
-  - name: posts
-    label: Posts
-    folder: content/posts
+  - name: news
+    label: News
+    folder: content/news
     create: true
     i18n: true
     fields:
@@ -37,17 +37,13 @@ collections:
       - label: Date
         name: date
         widget: datetime
-        i18n: duplicate      
-      - label: Date
-        name: date
-        widget: datetime
         i18n: duplicate
       - label: Last modified
         name: lastMod
         widget: datetime
         i18n: duplicate
       - label: Weight
-        name: Weight
+        name: weight
         widget: hidden
         i18n: duplicate
       - label: Image
