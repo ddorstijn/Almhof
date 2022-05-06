@@ -1,11 +1,11 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 description: ""
-excerpt: ""
+lead: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
 weight: 50
 images: ["{{ .Name | urlize }}.jpg"]
-categories: [""]
+contributors: []
 ---

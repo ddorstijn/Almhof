@@ -1,14 +1,20 @@
 .footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  border-top: 1px solid $gray-200;
+  padding-top: 1.125rem;
+  padding-bottom: 1.125rem;
 }
 
-.footer p {
+.footer ul {
+  margin-bottom: 0;
+}
+
+.footer li {
   font-size: $font-size-sm;
+  margin-bottom: 0;
 }
 
 @include media-breakpoint-up(md) {
-  .footer p {
+  .footer li {
     font-size: $font-size-base;
   }
 }
