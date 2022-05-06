@@ -5,10 +5,6 @@ lead: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
-images: []
-menu:
-  docs:
-    parent: ""
-weight: 999
-toc: true
+weight: 50
+image: "{{ .Name | urlize }}.jpg"
 ---
