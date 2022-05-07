@@ -34,6 +34,8 @@ collections:
         i18n: true
       - label: Lead
         name: lead
+        widget: string
+        i18n: true
       - label: Date
         name: date
         widget: datetime
