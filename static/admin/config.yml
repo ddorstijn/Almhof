@@ -57,3 +57,4 @@ collections:
       - label: Body
         name: body
         widget: markdown
+        i18n: true
