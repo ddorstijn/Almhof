@@ -20,6 +20,13 @@
 [context.next.environment]
   HUGO_ENV = "next"
 
+[[redirects]]
+from = "/"
+to = "/nl"
+status = 302
+force = true
+# conditions = {Country = "nl"}
+
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
 
