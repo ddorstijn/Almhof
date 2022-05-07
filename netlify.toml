@@ -25,7 +25,14 @@ from = "/"
 to = "/nl"
 status = 302
 force = true
-# conditions = {Country = "nl"}
+conditions = {Country = "nl"}
+
+[[redirects]]
+from = "/"
+to = "/de"
+status = 302
+force = true
+conditions = {Country = "de"}
 
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
