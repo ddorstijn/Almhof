@@ -38,6 +38,7 @@
     "@babel/cli": "^7.17",
     "@babel/core": "^7.17",
     "@babel/preset-env": "^7.16",
+    "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4",
     "eslint": "^8.12",
     "exec-bin": "^1.0.0",

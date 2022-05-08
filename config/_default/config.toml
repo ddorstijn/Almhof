@@ -2,7 +2,6 @@ baseurl = "https://almhof.netlify.app/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
-enableEmoji = false
 enableGitInfo = false
 enableRobotsTXT = true
 languageCode = "en-US"
@@ -11,6 +10,8 @@ paginate = 7
 # Multilingual
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
+
+copyright = "Copyright (c) 2020-2021 Almhof"
 
 # add redirects/headers
 [outputs]
@@ -40,8 +41,7 @@ rel  = "sitemap"
   contributor = "contributors"
 
 [permalinks]
-  blog = "/blog/:title/"
-# docs = "/docs/1.0/:sections[1:]/:title/"
+  news = "/news/:title/"
 
 [minify.tdewolff.html]
   keepWhitespace = false

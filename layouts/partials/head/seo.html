@@ -26,6 +26,12 @@
   {{ end -}}
 {{ end -}}
 
+{{ if .IsTranslated -}}
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Language.Params.LanguageCode | default .Lang }}" href="{{ .RelPermalink }}">
+{{ end -}}
+{{ end -}}
+
 {{ if $.Scratch.Get "paginator" }}
   <link rel="canonical" href="{{ .Paginator.URL | absURL }}">
   {{ if .Paginator.HasPrev -}}

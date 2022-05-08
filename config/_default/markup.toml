@@ -12,17 +12,6 @@ defaultMarkdownHandler = "goldmark"
   [goldmark.renderer]
     unsafe = true
 
-[highlight]
-  codeFences = false
-  guessSyntax = false
-  hl_Lines = ""
-  lineNoStart = 1
-  lineNos = false
-  lineNumbersInTable = true
-  noClasses = false
-  style = "dracula"
-  tabWidth = 4
-
 [tableOfContents]
   endLevel = 3
   ordered = false

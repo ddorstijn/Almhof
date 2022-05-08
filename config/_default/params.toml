@@ -3,30 +3,26 @@
 ## Homepage
 title = "Pension almhof"
 titleSeparator = "-"
-titleAddition = "Modern Documentation Theme"
+titleAddition = "B&B in the heart of Carinthia" 
 description = "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
-
-## Documentation
-# docsVersion = "0.3"
 
 ## Open Graph
 images = ["doks.png"]
 ogLocale = "en_US"
 domainTLD = "almhof.netlify.app"
-titleHome = "Doks Theme"
+titleHome = "Pension Almhof"
 
 ## Twitter Cards
 twitterSite = "@getdoks"
 twitterCreator = "@henkverlinde"
 
 ## JSON-LD
-# schemaType = "Person"
 schemaType = "Organization"
-schemaName = "Doks"
-schemaAuthor = "Henk Verlinde"
-schemaAuthorTwitter = "https://twitter.com/henkverlinde"
-schemaAuthorLinkedIn = "https://www.linkedin.com/in/henkverlinde/"
-schemaAuthorGitHub = "https://github.com/h-enk"
+schemaName = "Pension Almhof"
+schemaAuthor = "Danny Dorstijn"
+schemaAuthorTwitter = ""
+schemaAuthorLinkedIn = "https://www.linkedin.com/in/ddorstijn/"
+schemaAuthorGitHub = "https://github.com/ddorstijn"
 schemaLocale = "en-US"
 schemaLogo = "logo-doks.png"
 schemaLogoWidth = 512
@@ -34,13 +30,8 @@ schemaLogoHeight = 512
 schemaImage = "doks.png"
 schemaImageWidth = 1280
 schemaImageHeight = 640
-schemaTwitter = "https://twitter.com/getdoks"
 schemaLinkedIn = ""
-schemaGitHub = "https://github.com/h-enk/doks"
-schemaSection = "blog"
-
-## Sitelinks Search Box
-siteLinksSearchBox = false
+schemaSection = ""
 
 ## Chrome Browser
 themeColor = "#fff"
@@ -53,23 +44,6 @@ portraitPhotoWidths = [800, 700, 600, 500]
 lqipWidth = "20x"
 smallLimit = "300"
 
-# Footer
-footer = "Powered by <a class=\"text-muted\" href=\"https://www.netlify.com/\">Netlify</a>, <a class=\"text-muted\" href=\"https://gohugo.io/\">Hugo</a>, and <a class=\"text-muted\" href=\"https://getdoks.org/\">Doks</a>"
-
-# Feed
-copyRight = "Copyright (c) 2020-2021 Henk Verlinde"
-
 [options]
   lazySizes = true
   instantPage = true
-  darkMode = true
-  bootStrapJs = true
-  breadCrumb = false
-  multilingualMode = true
-  docsVersioning = false
-  fullWidth = false
-
-[menu]
-  [menu.section]
-    auto = true
-    collapsibleSidebar = true
