@@ -6,5 +6,5 @@ date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
 weight: 50
-image: "{{ .Name | urlize }}.jpg"
+image: ["{{ .Name | urlize }}.jpg"]
 ---

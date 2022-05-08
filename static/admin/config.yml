@@ -18,6 +18,33 @@ i18n:
   default_locale: en
 
 collections:
+  - name: homepage
+    label: Homepage
+    folder: content/homepage
+    create: true
+    i18n: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - label: Weight
+        name: weight
+        widget: number
+        i18n: duplicate
+      - label: Images
+        name: images
+        widget: image
+        i18n: duplicate
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: true
+        i18n: duplicate
+      - label: Body
+        name: body
+        widget: markdown
+        i18n: true
   - name: news
     label: News
     folder: content/news
@@ -42,19 +69,20 @@ collections:
         i18n: duplicate
       - label: Last modified
         name: lastMod
-        widget: datetime
+        widget: hidden
         i18n: duplicate
       - label: Weight
         name: weight
-        widget: hidden
+        widget: number
         i18n: duplicate
-      - label: Image
-        name: image
+      - label: Images
+        name: images
         widget: image
         i18n: duplicate
       - label: Draft
         name: draft
         widget: boolean
+        default: true
         i18n: duplicate
       - label: Body
         name: body
