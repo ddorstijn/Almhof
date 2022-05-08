@@ -1,11 +1,11 @@
 {
-  "name": "@hyas/doks",
-  "description": "Doks theme",
+  "name": "almhof",
+  "description": "Website of Pension Almhof in Afritz am See",
   "version": "0.4.2",
   "browserslist": [
     "defaults"
   ],
-  "repository": "https://github.com/h-enk/doks",
+  "repository": "https://github.com/ddorstijn/almhof",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -14,15 +14,17 @@
     "init": "shx rm -rf .git && git init -b main",
     "create": "exec-bin node_modules/.bin/hugo/hugo new",
     "prestart": "npm run clean",
-    "start": "exec-bin node_modules/.bin/hugo/hugo server --bind=0.0.0.0 --disableFastRender",
+    "start": "concurrently npm:watch:*",
     "prebuild": "npm run clean",
     "build": "exec-bin node_modules/.bin/hugo/hugo --gc --minify",
     "build:preview": "npm run build -D -F",
+    "watch:tw": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch",
+    "watch:hugo": "exec-bin node_modules/.bin/hugo/hugo server --bind=0.0.0.0",
     "clean": "shx rm -rf public resources",
-    "clean:install": "shx rm -rf package-lock.json node_modules ",
+    "clean:install": "shx rm -rf package-lock.json pnpm-lock.yaml node_modules ",
     "lint": "npm run -s lint:scripts && npm run -s lint:styles && npm run -s lint:markdown",
     "lint:scripts": "eslint assets/js config functions",
-    "lint:styles": "stylelint \"assets/scss/**/*.{css,sass,scss,sss,less}\"",
+    "lint:styles": "stylelint \"assets/css/**/*.{css,sass,scss,sss,less}\"",
     "lint:markdown": "markdownlint-cli2 \"*.md\" \"content/**/*.md\"",
     "lint:markdown-fix": "markdownlint-cli2-fix \"*.md\" \"content/**/*.md\"",
     "server": "exec-bin node_modules/.bin/hugo/hugo server",
@@ -36,9 +38,7 @@
     "@babel/cli": "^7.17",
     "@babel/core": "^7.17",
     "@babel/preset-env": "^7.16",
-    "@fullhuman/postcss-purgecss": "^4.1",
     "autoprefixer": "^10.4",
-    "bootstrap": "^5.1",
     "eslint": "^8.12",
     "exec-bin": "^1.0.0",
     "hugo-installer": "^3.1",
@@ -49,15 +49,16 @@
     "node-fetch": "^3.2",
     "postcss": "^8.4",
     "postcss-cli": "^9.1",
-    "purgecss-whitelister": "^2.4",
     "shx": "^0.3.4",
     "stylelint": "^14.6",
-    "stylelint-config-standard-scss": "^3.0"
+    "stylelint-config-standard-scss": "^3.0",
+    "tailwindcss": "^3.0.24"
   },
   "otherDependencies": {
     "hugo": "0.96.0"
   },
   "dependencies": {
-    "@popperjs/core": "^2.10.2"
+    "@popperjs/core": "^2.10.2",
+    "concurrently": "^7.1.0"
   }
 }
