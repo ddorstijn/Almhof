@@ -3,15 +3,15 @@
 <div class="w-full h-screen flex flex-col">
   <div class="relative hero grow flex items-end bg-center bg-no-repeat bg-cover" style="--image-url: url({{$imgSrc}});">
     <div class="pl-10 mb-6">
-      <span class="text-red-200 font-bold text-xl">We want</span>
+      <span class="text-primary-200 font-bold text-xl">We want</span>
       <h1 class="text-white text-5xl font-bold">Happiness<br>Peace</h1>
     </div>
   </div>
-  <div class="px-6 mb-6">
-    <div class="p-4 bg-rose-200 rounded-lg">
+  <div class="px-6 mb-14">
+    <div class="p-4 bg-secondary-300 rounded-lg shadow-lg">
       <h2 class="font-bold mb-2">Check availability</h2>
-      <form class="flex flex-col gap-2">
-        <label>
+      <form>
+        <label class="flex gap-2 mb-2 justify-between">
           <div class="flex items-end gap-2">
             <span class="text-sm material-symbols-outlined">
               flight_land
@@ -20,7 +20,7 @@
           </div>
           <input type="date" name="arrival">
         </label>
-        <label>
+        <label class="flex gap-2 justify-between">
           <div class="flex items-center gap-2">
             <span class="material-symbols-outlined">
               flight_takeoff
@@ -29,7 +29,7 @@
           </div>
           <input type="date" name="departure">
         </label>
-        <button>Check</button>
+        <button class="py-2 px-4 bg-primary-600 rounded mt-2 mx-auto block text-white">Check</button>
       </form>
     </div>
   </div>

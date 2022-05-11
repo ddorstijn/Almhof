@@ -14,7 +14,6 @@
   font-family: "Material Symbols Outlined", monospace;
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
@@ -32,8 +31,8 @@
   height: calc(100% + 3rem);
   background-image: var(--image-url);
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: -2rem 2rem;
+  filter: brightness(70%);
   top: 0;
   left: 0;
   content: "";
