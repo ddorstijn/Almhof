@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hero::before {
+  position: absolute;
+  width: 100%;
+  height: calc(100% + 3rem);
+  background-image: var(--image-url);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: -2rem 2rem;
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: -1;
+}

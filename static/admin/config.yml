@@ -21,7 +21,7 @@ collections:
   - name: homepage
     label: Homepage
     folder: content/homepage
-    create: true
+    create: false
     i18n: true
     fields:
       - label: Title
@@ -30,8 +30,7 @@ collections:
         i18n: true
       - label: Weight
         name: weight
-        widget: number
-        i18n: duplicate
+        widget: hidden
       - label: Images
         name: images
         widget: image
@@ -88,3 +87,15 @@ collections:
         name: body
         widget: markdown
         i18n: true
+  - name: rooms
+    label: Rooms
+    create: true
+  - name: facilities
+    label: Facilities
+    create: true
+  - name: activities
+    label: Activities
+    create: true
+  - name: reviews
+    label: Reviews
+    create: true

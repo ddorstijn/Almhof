@@ -1,11 +1,11 @@
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800 fixed w-full">
-  <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="{{ `/` | relLangURL }}" class="flex items-center">
-      <img src="{{ `logo.webp` | relURL }}" class="mr-3 h-6 sm:h-9" alt="Logo">
+<nav class="bg-white h-[10vh] px-2 sm:px-4 fixed w-full">
+  <div class="h-full flex flex-wrap justify-between items-center">
+    <a href="{{ `/` | relLangURL }}">
+      <img src="{{ `logo.webp` | relURL }}" class="mr-3 h-16" alt="Logo">
     </a>
     <div class="flex items-center md:order-2">
       <details class="relative">
-        <summary class="text-white cursor-pointer list-none" role="button">{{ .Site.Params.languageISO }}</summary>
+        <summary class="text-slate cursor-pointer list-none" role="button">{{ .Site.Params.languageISO }}</summary>
         <ul class="min-w-max absolute bg-white py-2 px-4 shadow rounded top-full -left-1/2">
           {{ if .IsTranslated -}}
             {{ range .Translations }}
