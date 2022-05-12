@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $imgSrc := (resources.GetMatch `images/Hero.jpg`).RelPermalink | safeURL }} 
-<div class="w-full h-[90vh] flex flex-col bg-primary-dark-accent">
+<div class="w-full h-[90vh] flex flex-col">
   <div class="relative hero mt-[10vh] grow flex items-end bg-center bg-no-repeat bg-cover" style="--image-url: url({{$imgSrc}});">
     <div class="pl-10 mb-6 z-10">
       <span class="text-primary-light-accent font-bold text-xl">We want</span>

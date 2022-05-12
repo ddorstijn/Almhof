@@ -1066,11 +1066,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
-.bg-primary-dark-accent {
-  --tw-bg-opacity: 1;
-  background-color: rgb(159 98 113 / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1247,7 +1242,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hero::before {
   position: absolute;
   width: 100%;
-  height: calc(100% + 3rem);
+  height: calc(100% + 12vh);
   background-image: var(--image-url);
   background-repeat: no-repeat;
   background-position: 45% 20%;
