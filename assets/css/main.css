@@ -28,7 +28,7 @@
 .hero::before {
   position: absolute;
   width: 100%;
-  height: calc(100% + 3rem);
+  height: calc(100% + 5vh);
   background-image: var(--image-url);
   background-repeat: no-repeat;
   background-position: 45% 20%;
