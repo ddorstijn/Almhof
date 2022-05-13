@@ -966,8 +966,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.h-\[90vh\] {
-  height: 90vh;
+.h-full {
+  height: 100%;
 }
 
 .h-12 {
@@ -976,10 +976,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[10vh\] {
   height: 10vh;
-}
-
-.h-full {
-  height: 100%;
 }
 
 .h-16 {
@@ -1056,17 +1052,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.25rem;
 }
 
-.border {
-  border-width: 1px;
-}
-
 .border-b {
   border-bottom-width: 1px;
-}
-
-.border-gray-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
 .border-gray-100 {
@@ -1094,18 +1081,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
-.bg-cover {
-  background-size: cover;
-}
-
-.bg-center {
-  background-position: center;
-}
-
-.bg-no-repeat {
-  background-repeat: no-repeat;
-}
-
 .p-4 {
   padding: 1rem;
 }
@@ -1119,14 +1094,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 1rem;
 }
 
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .py-2 {
@@ -1136,10 +1111,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-10 {
   padding-left: 2.5rem;
-}
-
-.pl-2 {
-  padding-left: 0.5rem;
 }
 
 .pr-4 {
@@ -1191,6 +1162,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-primary-dark-shade {
   --tw-text-opacity: 1;
   color: rgb(89 59 67 / var(--tw-text-opacity));
+}
+
+.text-slate-700 {
+  --tw-text-opacity: 1;
+  color: rgb(51 65 85 / var(--tw-text-opacity));
 }
 
 .text-primary-light-shade {
@@ -1252,6 +1228,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body, main {
+  height: 100%;
+}
+
+main {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 248 248 / var(--tw-bg-opacity));
+}
+
 .hero::before {
   position: absolute;
   width: 100%;
@@ -1284,11 +1269,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0;
   top: 0;
   width: auto;
-}
-
-main {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 248 248 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-100:hover {

@@ -1,38 +1,40 @@
 {{ define "main" }}
 {{ $imgSrc := (resources.GetMatch `images/Hero.jpg`).RelPermalink | safeURL }} 
-<div class="w-full h-[90vh] flex flex-col">
-  <div class="relative hero mt-[10vh] grow flex items-end bg-center bg-no-repeat bg-cover" style="--image-url: url({{$imgSrc}});">
-    <div class="pl-10 mb-6 z-10">
-      <span class="text-primary-dark-accent font-bold text-xl">We want</span>
-      <h1 class="text-white text-5xl font-bold">Happiness<br>Peace</h1>
+<main>
+  <div class="w-full h-full flex flex-col">
+    <div class="relative hero mt-[10vh] grow flex items-end" style="--image-url: url({{$imgSrc}});">
+      <div class="pl-10 mb-6 z-10">
+        <span class="text-primary-dark-accent font-bold text-xl">We want</span>
+        <h1 class="text-white text-5xl font-bold">Happiness<br>Peace</h1>
+      </div>
+    </div>
+    <div class="px-4 mb-4 z-10">
+      <div class="p-4 bg-white rounded-lg shadow-lg">
+        <h2 class="font-bold text-lg mb-4 text-primary-dark-shade">Check availability</h2>
+        <form>
+          <div class="grid grid-cols-2 gap-2 mb-6">
+            <label class="text-sm">
+              Check in
+              <input class="h-12 w-full px-2" type="date" name="arrival" required>
+            </label>
+            <label class="text-sm text-slate-700">
+              Checkout
+              <input class="h-12 w-full px-2" type="date" name="departure" required>
+            </label>
+          </div>
+          <button type="submit" class="py-3 px-4 bg-primary-dark-accent rounded w-full block text-primary-light-shade font-bold">Check</button>
+        </form>
+      </div>
     </div>
   </div>
-  <div class="px-4 mb-4 z-10">
-    <div class="p-4 bg-white rounded-lg shadow-lg">
-      <h2 class="font-bold text-lg mb-4 text-primary-dark-shade">Check availability</h2>
-      <form>
-        <div class="grid grid-cols-2 gap-2 mb-6">
-          <label>
-            From
-            <input class="h-12 w-full pl-2 pr-4 border-gray-200 border rounded" type="date" name="arrival" required>
-          </label>
-          <label>
-            To
-            <input class="h-12 w-full pl-2 pr-4 border-gray-200 border rounded" type="date" name="departure" required>
-          </label>
-        </div>
-        <button type="submit" class="py-3 px-4 bg-primary-dark-accent rounded w-full block text-primary-light-shade font-bold">Check</button>
-      </form>
+  {{- $sections := $.Site.GetPage "/homepage" }}
+  {{ range $ind, $elem := (sort $sections.Resources ".Params.weight") }}
+  <section class="mx-auto my-8 flex justify-center">
+    <div class="prose prose-md text-center">
+      <h2>{{.Title}}</h2>
+      <p>{{ default "" $elem.Content }}</p>
     </div>
-  </div>
-</div>
-{{- $sections := $.Site.GetPage "/homepage" }}
-{{ range $ind, $elem := (sort $sections.Resources ".Params.weight") }}
-<section class="mx-auto my-8 flex justify-center">
-  <div class="prose prose-md text-center">
-    <h2>{{.Title}}</h2>
-    <p>{{ default "" $elem.Content }}</p>
-  </div>
-</section>
-{{ end }}
+  </section>
+  {{ end }}
+</main>
 {{ end }}
