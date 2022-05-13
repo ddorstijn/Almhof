@@ -18,14 +18,14 @@
                 <i class="material-symbols-outlined">flight_land</i>
                 Check in
               </span>
-              <input class="w-full py-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="arrival" required>
+              <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="arrival" required>
             </label>
             <label>
               <span class="text-sm text-slate-600 flex items-center gap-1">
                 <i class="material-symbols-outlined">flight_takeoff</i>
                 Check out
               </span>
-              <input class="w-full py-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="departure" required>
+              <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="departure" required>
             </label>
           </div>
           <button type="submit" class="py-3 px-4 bg-primary-dark-accent rounded w-full block text-primary-light-shade font-bold">Check</button>
@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+
   {{- $sections := $.Site.GetPage "/homepage" }}
   {{ range $ind, $elem := (sort $sections.Resources ".Params.weight") }}
   <section class="mx-auto my-8 flex justify-center">
@@ -42,5 +43,6 @@
     </div>
   </section>
   {{ end }}
+
 </main>
 {{ end }}

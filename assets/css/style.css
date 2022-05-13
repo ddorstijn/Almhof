@@ -1089,6 +1089,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -1106,11 +1110,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .py-3 {
@@ -1278,12 +1277,17 @@ main {
   z-index: 0;
 }
 
-/* [type="date"]::-webkit-inner-spin-button {
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button {
   display: none;
 }
 
 [type="date"]::-webkit-calendar-picker-indicator {
-  background-color: transparent;
+  background: none;
   bottom: 0;
   color: transparent;
   cursor: pointer;
@@ -1293,7 +1297,7 @@ main {
   right: 0;
   top: 0;
   width: auto;
-} */
+}
 
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
