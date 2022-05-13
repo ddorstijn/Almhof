@@ -3,25 +3,25 @@
 <div class="w-full h-[90vh] flex flex-col">
   <div class="relative hero mt-[10vh] grow flex items-end bg-center bg-no-repeat bg-cover" style="--image-url: url({{$imgSrc}});">
     <div class="pl-10 mb-6 z-10">
-      <span class="text-primary-light-accent font-bold text-xl">We want</span>
+      <span class="text-primary-dark-accent font-bold text-xl">We want</span>
       <h1 class="text-white text-5xl font-bold">Happiness<br>Peace</h1>
     </div>
   </div>
-  <div class="px-6 mb-4 z-10">
-    <div class="p-4 bg-white rounded-lg shadow-xl">
+  <div class="px-4 mb-4 z-10">
+    <div class="p-4 bg-white rounded-lg shadow-lg">
       <h2 class="font-bold text-lg mb-4 text-primary-dark-shade">Check availability</h2>
       <form>
-        <div class="flex gap-2 bg-white mb-6">
+        <div class="grid grid-cols-2 gap-2 mb-6">
           <label>
             From
-            <input class="h-12 pl-2 pr-4 border-gray-200 border rounded" type="date" name="arrival" required>
+            <input class="h-12 w-full pl-2 pr-4 border-gray-200 border rounded" type="date" name="arrival" required>
           </label>
           <label>
             To
-            <input class="h-12 pl-2 pr-4 border-gray-200 border rounded" type="date" name="departure" required>
+            <input class="h-12 w-full pl-2 pr-4 border-gray-200 border rounded" type="date" name="departure" required>
           </label>
         </div>
-        <button type="submit" class="py-2 px-4 bg-primary-brand rounded w-full block text-white font-bold">Check</button>
+        <button type="submit" class="py-3 px-4 bg-primary-dark-accent rounded w-full block text-primary-light-shade font-bold">Check</button>
       </form>
     </div>
   </div>

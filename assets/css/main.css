@@ -28,10 +28,10 @@
 .hero::before {
   position: absolute;
   width: 100%;
-  height: calc(100% + 12vh);
+  height: calc(100% + 6rem);
   background-image: var(--image-url);
   background-repeat: no-repeat;
-  background-position: 45% 20%;
+  background-position: 50% 65%;
   background-size: 100vh;
   filter: brightness(70%);
   top: 0;
@@ -57,4 +57,8 @@
   right: 0;
   top: 0;
   width: auto;
+}
+
+main {
+  @apply bg-primary-light-shade;
 }
