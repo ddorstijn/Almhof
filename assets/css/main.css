@@ -50,7 +50,7 @@ main {
   z-index: 0;
 }
 
-[type="date"]::-webkit-inner-spin-button {
+/* [type="date"]::-webkit-inner-spin-button {
   display: none;
 }
 
@@ -65,4 +65,4 @@ main {
   right: 0;
   top: 0;
   width: auto;
-}
+} */

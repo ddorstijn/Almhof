@@ -1070,6 +1070,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-primary-dark-accent {
   --tw-bg-opacity: 1;
   background-color: rgb(159 98 113 / var(--tw-bg-opacity));
@@ -1083,10 +1087,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
-
-.bg-transparent {
-  background-color: transparent;
 }
 
 .p-2 {
@@ -1106,6 +1106,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .py-3 {
@@ -1273,7 +1278,7 @@ main {
   z-index: 0;
 }
 
-[type="date"]::-webkit-inner-spin-button {
+/* [type="date"]::-webkit-inner-spin-button {
   display: none;
 }
 
@@ -1288,7 +1293,7 @@ main {
   right: 0;
   top: 0;
   width: auto;
-}
+} */
 
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
