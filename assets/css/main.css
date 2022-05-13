@@ -28,7 +28,7 @@
 html,
 body,
 main {
-  @apply h-full;
+  height: 100%;
 }
 
 main {
@@ -48,8 +48,6 @@ main {
   left: 0;
   content: "";
   z-index: 0;
-
-  @apply rounded-t-lg;
 }
 
 [type="date"]::-webkit-inner-spin-button {
