@@ -1269,12 +1269,12 @@ main {
   z-index: 0;
 }
 
-[type="date"]::-webkit-inner-spin-button {
+/* [type="date"]::-webkit-inner-spin-button {
   display: none;
 }
 
 [type="date"]::-webkit-calendar-picker-indicator {
-  background: transparent;
+  background-color: transparent;
   bottom: 0;
   color: transparent;
   cursor: pointer;
@@ -1284,7 +1284,7 @@ main {
   right: 0;
   top: 0;
   width: auto;
-}
+} */
 
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
