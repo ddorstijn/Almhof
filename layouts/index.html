@@ -1,46 +1,73 @@
 {{ define "main" }}
 {{ $imgSrc := (resources.GetMatch `images/Hero.jpg`).RelPermalink | safeURL }} 
-<main>
-  <div class="w-full h-full flex flex-col">
-    <div class="relative hero mt-[10vh] grow flex items-end" style="--image-url: url({{$imgSrc}});">
-      <div class="pl-10 mb-6 z-10">
-        <span class="text-primary-dark-accent font-bold text-xl">We want</span>
-        <h1 class="text-white text-5xl font-bold">Happiness<br>Peace</h1>
-      </div>
-    </div>
-    <div class="px-4 mb-8 z-10">
-      <div class="px-6 py-5 bg-white rounded-lg shadow-lg">
-        <h2 class="font-bold text-lg mb-4 text-primary-dark-shade">Check availability</h2>
-        <form>
-          <div class="grid grid-cols-2 gap-2 mb-4">
-            <label>
-              <span class="text-sm text-slate-600 flex items-center gap-1">
-                <i class="material-symbols-outlined">flight_land</i>
-                Check in
-              </span>
-              <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="arrival" required>
-            </label>
-            <label>
-              <span class="text-sm text-slate-600 flex items-center gap-1">
-                <i class="material-symbols-outlined">flight_takeoff</i>
-                Check out
-              </span>
-              <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="departure" required>
-            </label>
-          </div>
-          <button type="submit" class="py-3 px-4 bg-primary-dark-accent rounded w-full block text-primary-light-shade font-bold">Check</button>
-        </form>
-      </div>
+<div class="hero w-full h-full flex flex-col">
+  <div class="hero__image relative grow flex items-end" style="--image-url: url({{$imgSrc}});">
+    <div class="pl-10 mb-6 z-10">
+      <span class="text-red-100 font-bold text-xl">We want</span>
+      <h1 class="text-white text-5xl font-bold">Happiness<br>Peace</h1>
     </div>
   </div>
-
-  {{- $sections := $.Site.GetPage "/homepage" }}
-  {{ range $ind, $elem := (sort $sections.Resources ".Params.weight") }}
-  <section class="mx-auto my-8 flex justify-center">
-    <div class="prose prose-md text-center">
-      <h2>{{.Title}}</h2>
-      <p>{{ default "" $elem.Content }}</p>
+  <div class="px-6 mb-8 z-10">
+    <div class="px-4 py-5 bg-white rounded-lg shadow-lg">
+      <h2 class="font-bold text-lg mb-4 text-primary-dark-shade">Check availability</h2>
+      <form>
+        <div class="grid grid-cols-2 gap-2 mb-4">
+          <label>
+            <span class="text-sm text-slate-600 flex items-center gap-1">
+              <i class="material-symbols-outlined">flight_land</i>
+              Check in
+            </span>
+            <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="arrival" required>
+          </label>
+          <label>
+            <span class="text-sm text-slate-600 flex items-center gap-1">
+              <i class="material-symbols-outlined">flight_takeoff</i>
+              Check out
+            </span>
+            <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="departure" required>
+          </label>
+        </div>
+        <button type="submit" class="py-3 px-4 bg-primary-dark-accent rounded w-full block text-primary-light-shade font-bold">Check</button>
+      </form>
     </div>
+  </div>
+</div>
+
+<main>
+  {{- $sections := $.Site.GetPage "/homepage" }}
+  
+  {{- $welcome := (index (where $sections.Resources ".Params.section" "Welcome") 0) }}
+  {{ with $welcome }}
+  <section class="px-4 my-8">
+    {{ partial "main/image.html" (dict "Destination" (index (.Param "images") 0)) }}
+    <div class="prose prose-md mt-4">
+      <h2>{{.Title}}</h2>
+      <p>{{ default "" .Content }}</p>
+    </div>
+  </section>
+  {{ end }}
+
+  <section class="block pt-4 pb-12 px-6 w-full bg-primary-dark-shade">
+    <h2 class="block text-center font-bold text-primary-light-shade mb-6">Rooms</h2>
+
+    <div class="inline-block bg-primary-light-shade px-4 mt-6 rounded-xl">
+      <div class="-mt-6 shadow">
+        {{ partial "main/image.html" (dict "Destination" "https://source.unsplash.com/collection/582860/660x440") }}
+      </div>
+      <div class="prose prose-md py-6 px-3">
+        <h3 class="text-primary-dark-shade mb-0 leading-none">Chamber with balcony</h3>
+        <span class="text-primary-dark-accent">2 person - Balcony view</span>
+        <p class="mt-3">Lorem ipsum dolor sit, amet consectet adipisicing elit. Eaque inventore nihil dicta quam id quae explicabo, molestias nam, voluptatem excepturi laborum corporis impedit, officia perspiciatis animi eos magni ipsam harum.</p>
+      </div>
+    </div>
+  </section>
+
+  {{- $aboutus := (index (where $sections.Resources ".Params.section" "About us") 0) }}
+  {{ with $aboutus }}
+  <section class="px-4 my-8 prose prose-md">
+    <h2>{{.Title}}</h2>
+    <p>{{ default "" .Content }}</p>
+    {{ partial "main/image.html" (dict "Destination" (index (.Param "images") 0)) }}
   </section>
   {{ end }}
 

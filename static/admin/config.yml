@@ -28,17 +28,18 @@ collections:
         name: title
         widget: string
         i18n: true
-      - label: Weight
-        name: weight
+      - label: Section
+        name: section
         widget: hidden
       - label: Images
         name: images
         widget: image
+        allow_multiple: false
         i18n: duplicate
       - label: Draft
         name: draft
-        widget: boolean
-        default: true
+        widget: hidden
+        default: false
         i18n: duplicate
       - label: Body
         name: body

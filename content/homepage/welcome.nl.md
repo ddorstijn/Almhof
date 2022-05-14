@@ -1,8 +1,8 @@
 ---
 title: Bed and breakfast in het hart van Karinthië
-weight: 5
+section: "Welcome"
 images:
-  - /images/Hero.jpg
+  - /images/almhof.webp
 draft: false
 ---
 

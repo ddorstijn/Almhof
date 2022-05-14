@@ -26,16 +26,12 @@
 }
 
 html,
-body,
-main {
+body {
   height: 100%;
-}
-
-main {
   @apply bg-primary-light-shade;
 }
 
-.hero::before {
+.hero__image::before {
   position: absolute;
   width: 100%;
   height: calc(100% + 6rem);

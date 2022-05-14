@@ -22,9 +22,8 @@
     "watch:hugo": "exec-bin node_modules/.bin/hugo/hugo server --bind=0.0.0.0",
     "clean": "shx rm -rf public resources",
     "clean:install": "shx rm -rf package-lock.json pnpm-lock.yaml node_modules ",
-    "lint": "npm run -s lint:scripts && npm run -s lint:styles && npm run -s lint:markdown",
+    "lint": "npm run -s lint:scripts && npm run -s lint:markdown",
     "lint:scripts": "eslint assets/js config functions",
-    "lint:styles": "stylelint \"assets/css/**/*.{css,sass,scss,sss,less}\"",
     "lint:markdown": "markdownlint-cli2 \"*.md\" \"content/**/*.md\"",
     "lint:markdown-fix": "markdownlint-cli2-fix \"*.md\" \"content/**/*.md\"",
     "server": "exec-bin node_modules/.bin/hugo/hugo server",
@@ -45,7 +44,6 @@
     "netlify-plugin-submit-sitemap": "^0.3.0",
     "node-fetch": "^3.2",
     "shx": "^0.3.4",
-    "stylelint": "^14.6",
     "tailwindcss": "^3.0.24"
   },
   "otherDependencies": {
