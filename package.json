@@ -14,12 +14,10 @@
     "init": "shx rm -rf .git && git init -b main",
     "create": "exec-bin node_modules/.bin/hugo/hugo new",
     "prestart": "npm run clean",
-    "start": "concurrently npm:watch:*",
+    "start": "exec-bin node_modules/.bin/hugo/hugo server --bind=0.0.0.0",
     "prebuild": "npm run clean",
     "build": "exec-bin node_modules/.bin/hugo/hugo --gc --minify",
     "build:preview": "npm run build -D -F",
-    "watch:tw": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch",
-    "watch:hugo": "exec-bin node_modules/.bin/hugo/hugo server --bind=0.0.0.0",
     "clean": "shx rm -rf public resources",
     "clean:install": "shx rm -rf package-lock.json pnpm-lock.yaml node_modules ",
     "lint": "npm run -s lint:scripts && npm run -s lint:markdown",
@@ -43,6 +41,9 @@
     "markdownlint-cli2": "^0.4.0",
     "netlify-plugin-submit-sitemap": "^0.3.0",
     "node-fetch": "^3.2",
+    "postcss": "^8.4.13",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.1.0",
     "shx": "^0.3.4",
     "tailwindcss": "^3.0.24"
   },
@@ -51,7 +52,6 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
-    "concurrently": "^7.1.0",
     "swiper": "^8.1.4"
   }
 }

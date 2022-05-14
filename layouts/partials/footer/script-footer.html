@@ -11,9 +11,9 @@
 {{ $instantPage := $instantPage | js.Build -}}
 {{ $slice = $slice | append $instantPage -}}
 
-{# {{ $swiper := resources.Get "js/swiper.js" -}}
+{{ $swiper := resources.Get "js/swiper.js" -}}
 {{ $swiper := $swiper | js.Build -}}
-{{ $slice = $slice | append $swiper -}} #}
+{{ $slice = $slice | append $swiper -}}
 
 {{ $js := $slice | resources.Concat "main.js" -}}
 
