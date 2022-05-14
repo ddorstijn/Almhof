@@ -90,6 +90,8 @@ collections:
         i18n: true
   - name: rooms
     label: Rooms
+    i18n: true
+    folder: content/rooms
     create: true
     fields:
       - label: Room number
@@ -132,10 +134,85 @@ collections:
         i18n: true
   - name: facilities
     label: Facilities
+    i18n: true
+    folder: content/facilities
     create: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - label: Description
+        name: description
+        widget: string
+        i18n: true
+      - label: Images
+        name: images
+        widget: image
+        allow_multiple: false
+        i18n: duplicate
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: true
+        i18n: duplicate
+      - label: Body
+        name: body
+        widget: markdown
+        i18n: true
   - name: activities
     label: Activities
+    i18n: true
+    folder: content/activities
     create: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - label: Description
+        name: description
+        widget: string
+        i18n: true
+      - label: Images
+        name: images
+        widget: image
+        allow_multiple: false
+        i18n: duplicate
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: true
+        i18n: duplicate
+      - label: Body
+        name: body
+        widget: markdown
+        i18n: true
   - name: reviews
     label: Reviews
     create: true
+    i18n: true
+    folder: content/reviews
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - label: Description
+        name: description
+        widget: string
+        i18n: true
+      - label: Images
+        name: images
+        widget: image
+        allow_multiple: false
+        i18n: duplicate
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: true
+        i18n: duplicate
+      - label: Body
+        name: body
+        widget: markdown
+        i18n: true
