@@ -2,17 +2,18 @@
 
 {{ $slice := slice $app -}}
 
-{{ if .Site.Params.options.lazySizes -}}
-  {{ $lazySizes := resources.Get "js/lazysizes.js" -}}
-  {{ $lazySizes := $lazySizes | js.Build -}}
-  {{ $slice = $slice | append $lazySizes -}}
-{{ end -}}
 
-{{ if .Site.Params.options.instantPage -}}
-  {{ $instantPage := resources.Get "js/instant.page.js" -}}
-  {{ $instantPage := $instantPage | js.Build -}}
-  {{ $slice = $slice | append $instantPage -}}
-{{ end -}}
+{{ $lazySizes := resources.Get "js/lazysizes.js" -}}
+{{ $lazySizes := $lazySizes | js.Build -}}
+{{ $slice = $slice | append $lazySizes -}}
+
+{{ $instantPage := resources.Get "js/instant.page.js" -}}
+{{ $instantPage := $instantPage | js.Build -}}
+{{ $slice = $slice | append $instantPage -}}
+
+{# {{ $swiper := resources.Get "js/swiper.js" -}}
+{{ $swiper := $swiper | js.Build -}}
+{{ $slice = $slice | append $swiper -}} #}
 
 {{ $js := $slice | resources.Concat "main.js" -}}
 

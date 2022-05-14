@@ -2,7 +2,7 @@
 title: Our story
 section: "About us"
 images:
-  - /images/aboutus.jpg
+  - images/aboutus.jpg
 draft: false
 ---
 

@@ -35,9 +35,9 @@
 {{ end -}}
 
 {{ with $.Params.images -}}
-  {{ range first 6 . -}}
-  <meta property="og:image" content="{{ $.Permalink }}{{ . }}">
-  {{ end -}}
+{{ range first 6 . -}}
+<meta property="og:image" content="{{ $.Permalink }}{{ . }}">
+{{ end -}}
 {{ else -}}
   {{ $images := $.Resources.ByType "image" -}}
   {{ $featured := $images.GetMatch "*feature*" -}}

@@ -1,6 +1,6 @@
 ---
 room: 1
-title: Studio for 2 persons
+title: Double room voor 2 personen
 description: Lorem ipsum dolor sit, amet consectet adipisicing elit. Eaque
   inventore nihil dicta quam id quae explicabo, molestias nam, voluptatem
   excepturi laborum corporis impedit, officia perspiciatis animi eos magni ipsam
@@ -8,8 +8,8 @@ description: Lorem ipsum dolor sit, amet consectet adipisicing elit. Eaque
 images: [/images/test1.jpg]
 capacity: 2
 highlights:
-  - Balcony
-  - Breakfast
+  - Balkon
+  - Ontbijt
 draft: false
 ---
 <!--StartFragment-->
