@@ -91,6 +91,45 @@ collections:
   - name: rooms
     label: Rooms
     create: true
+    fields:
+      - label: Room number
+        name: room
+        widget: number
+        i18n: duplicate
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - label: Description
+        name: description
+        widget: string
+        i18n: true
+      - label: Images
+        name: images
+        widget: image
+        allow_multiple: false
+        i18n: duplicate
+      - label: Capacity
+        name: capacity
+        i18n: duplicate
+        widget: number
+        value_type: int
+        min: 1
+        default: 2
+      - label: "Highlights"
+        name: "highlights"
+        i18n: true
+        widget: "list"
+        add_to_top: true
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: true
+        i18n: duplicate
+      - label: Body
+        name: body
+        widget: markdown
+        i18n: true
   - name: facilities
     label: Facilities
     create: true
