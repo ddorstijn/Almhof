@@ -5,7 +5,7 @@ description: Lorem ipsum dolor sit, amet consectet adipisicing elit. Eaque
   inventore nihil dicta quam id quae explicabo, molestias nam, voluptatem
   excepturi laborum corporis impedit, officia perspiciatis animi eos magni ipsam
   harum.
-images: [/images/test1.jpg]
+images: /images/350673030-1-.jpg
 capacity: 2
 highlights:
   - Balkon
