@@ -47,47 +47,47 @@
   </section>
   {{ end }}
 
-  <section class="block pt-4 pb-12 px-6 w-full bg-primary-dark-shade">
-    <h2 class="block text-center font-bold text-primary-light-shade mb-6">Rooms</h2>
-
-    {{ $section := where $.Site.RegularPages "Section" "rooms"}}
-    {{ range $section }}
-      <div class="inline-block bg-primary-light-shade px-4 mt-6 rounded-xl shadow-lg">
-        <div class="-mt-6 shadow">
-          {{ partial "main/image.html" (dict "Destination" (index (.Params.images) 0)) }}
-        </div>
-        <div class="prose prose-md py-6 px-3">
-          <h3 class="text-primary-dark-shade mb-0 leading-none">{{ .Title }}</h3>
-          <span class="text-primary-dark-accent">
-            {{ range .Params.highlights }}
-              {{.}} ∙
-            {{ end }}
+  <section class="splide block pt-4 pb-12 px-6 w-full bg-primary-dark-shade" aria-labelledby="rooms">
+    <h2 id="rooms" class="block text-center font-bold text-primary-light-shade mb-6">Rooms</h2>
+    <div class="relative">
+      <div class="splide__arrows text-white text-2xl absolute flex justify-between inset-x-0 top-1/2 w-full">
+        <button class="splide__arrow splide__arrow--prev disabled:opacity-50 -ml-6">
+          <span class="material-symbols-outlined">
+            navigate_before
           </span>
-          <p class="mt-3">
-            {{.Description}}
-          </p>
-        </div>
+        </button>
+        <button class="splide__arrow splide__arrow--next disabled:opacity-50 -mr-6">
+          <span class="material-symbols-outlined">
+            navigate_next
+          </span>
+        </button>
       </div>
-    {{ end }}
-
-    <div class="swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        ...
+      <div class="splide__track">
+        <ul class="splide__list">
+          {{ $section := where $.Site.RegularPages "Section" "rooms"}}
+          {{ range $section }}
+          <li class="splide__slide">
+            <div class="inline-block bg-primary-light-shade px-4 mt-6 rounded-xl shadow-lg">
+              <div class="-mt-6 shadow">
+                {{ partial "main/image.html" (dict "Destination" (index (.Params.images) 0)) }}
+              </div>
+              <div class="prose prose-md py-6 px-3">
+                <h3 class="text-primary-dark-shade mb-0 leading-none">{{ .Title }}</h3>
+                <span class="text-primary-dark-accent">
+                  {{ $list := .Params.highlights }}
+                  {{ range $idx, $el := $list }}
+                  {{.}} {{ if ne (add $idx 1) (len $list) }} ∙ {{ end }}
+                  {{ end }}
+                </span>
+                <p class="mt-3">
+                  {{.Description}}
+                </p>
+              </div>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
       </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-    
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    
-      <!-- If we need scrollbar -->
-      <div class="swiper-scrollbar"></div>
     </div>
   </section>
 

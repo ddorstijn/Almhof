@@ -1,4 +1,4 @@
-@import "swiper/swiper-bundle.css";
+@import "@splidejs/splide/dist/css/splide-core.min.css";
 
 @tailwind base;
 @tailwind components;
@@ -69,4 +69,16 @@ input[type="date"]::-webkit-outer-spin-button {
   right: 0;
   top: 0;
   width: auto;
+}
+
+.splide__pagination {
+  @apply gap-1;
+}
+
+.splide__pagination button.is-active {
+  @apply bg-primary-light-accent;
+}
+
+.splide__pagination button {
+  @apply h-2 w-2 rounded-full bg-primary-dark-accent;
 }
