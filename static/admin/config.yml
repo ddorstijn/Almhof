@@ -109,7 +109,7 @@ collections:
       - label: Images
         name: images
         widget: image
-        allow_multiple: false
+        allow_multiple: true
         i18n: duplicate
       - label: Capacity
         name: capacity
