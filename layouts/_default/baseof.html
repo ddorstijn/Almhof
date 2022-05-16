@@ -12,10 +12,11 @@
     {{ .Scratch.Set "class" .Type -}}
     {{ .Scratch.Add "class" " list" -}}
   {{ end -}}
-  <body class="{{ .Scratch.Get "class" }}">
+  <body class="{{ .Scratch.Get `class` }}">
     {{ partial "header/header.html" . }}
     {{ block "main" . }}{{ end }}
     {{ partial "footer/footer.html" . }}
     {{ partial "footer/script-footer.html" . }}
+    {{ block "custom_script" . }}{{ end }}
   </body>
 </html>

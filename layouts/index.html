@@ -10,21 +10,21 @@
   <div class="px-6 mb-8 z-10">
     <div class="px-4 py-5 bg-white rounded-lg shadow-lg">
       <h2 class="font-bold text-lg mb-4 text-primary-dark-shade">Check availability</h2>
-      <form>
+      <form action="https://pensionalmhof.at/en/availability">
         <div class="grid grid-cols-2 gap-2 mb-4">
           <label>
             <span class="text-sm text-slate-600 flex items-center gap-1">
               <i class="material-symbols-outlined">flight_land</i>
               Check in
             </span>
-            <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="arrival" required>
+            <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" placeholder="dd-MM-yyyy" name="checkin" required>
           </label>
           <label>
             <span class="text-sm text-slate-600 flex items-center gap-1">
               <i class="material-symbols-outlined">flight_takeoff</i>
               Check out
             </span>
-            <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" name="departure" required>
+            <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" placeholder="dd-MM-yyyy" name="checkout" required>
           </label>
         </div>
         <button type="submit" class="py-3 px-4 bg-primary-dark-accent rounded w-full block text-primary-light-shade font-bold">Check</button>
@@ -69,7 +69,9 @@
           <li class="splide__slide">
             <div class="inline-block bg-primary-light-shade px-4 mt-6 rounded-xl shadow-lg">
               <div class="-mt-6 shadow">
-                {{ partial "main/image.html" (dict "Destination" (index (.Params.images) 0)) }}
+                {{ with (index (.Params.images) 0) }}
+                  {{ partial "main/image.html" (dict "Destination" .) }}
+                {{end}}
               </div>
               <div class="prose prose-md py-6 px-3">
                 <h3 class="text-primary-dark-shade mb-0 leading-none">{{ .Title }}</h3>
@@ -101,4 +103,19 @@
   {{ end }}
 
 </main>
+{{ end }}
+
+{{ define "custom_script" }}
+<script type="module">
+  function onSubmit(e) {
+    e.preventDefault();
+
+    console.log("Submit");
+  }
+
+  new window.Splide('.splide', {
+    gap: '2rem',
+    keyboard: true,
+  }).mount();
+</script>
 {{ end }}
