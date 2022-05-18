@@ -1,8 +1,11 @@
-{{ $styles := resources.Get "/css/main.css" | postCSS }}
-{{ if hugo.IsProduction  -}}
-  {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+{{ if eq (hugo.Environment) "development" -}}
+  {{ $options := (dict "transpiler" "dartsass" "targetPath" "main.css" "enableSourceMap" true "includePaths" (slice "node_modules")) -}}
+  {{ $css := resources.Get "scss/main.scss" | toCSS $options -}}
+  <link rel="stylesheet" href="{{ $css.Permalink | relURL }}">
 {{ else -}}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}"/>
+  {{ $options := (dict "transpiler" "dartsass" "targetPath" "main.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
+  {{ $css := resources.Get "scss/main.scss" | toCSS $options | postCSS -}}
+  {{ $secureCSS := $css | resources.Fingerprint "sha512" -}}
+  <link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous">
 {{ end -}}
 <noscript><style>img.lazyload { display: none; }</style></noscript>

@@ -1,9 +1,17 @@
-const tailwindcss = require('tailwindcss')
-const postcssImport = require('postcss-import')
+const autoprefixer = require('autoprefixer');
+const purgecss = require('@fullhuman/postcss-purgecss');
 
 module.exports = {
   plugins: [
-    postcssImport(),
-    tailwindcss(),
+    autoprefixer(),
+    purgecss({
+      content: [
+        './layouts/**/*.html',
+        './content/**/*.md',
+      ],
+      safelist: [
+        'lazyloaded',
+      ],
+    }),
   ],
 }

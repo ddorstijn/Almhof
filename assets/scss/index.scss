@@ -1,0 +1,53 @@
+@use "@splidejs/splide/dist/css/splide-core.min.css";
+
+.hero__image::before {
+  position: absolute;
+  width: 100%;
+  height: calc(100% + 6rem);
+  background-image: var(--image-url);
+  background-repeat: no-repeat;
+  background-position: 50% 65%;
+  background-size: 100vh;
+  filter: brightness(70%);
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: 0;
+}
+
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button {
+  display: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+  background: none;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.splide__pagination {
+  gap: var(--spacing-1);
+}
+
+.splide__pagination button.is-active {
+  background-color: var(--clr-light);
+}
+
+.splide__pagination button {
+  height: var(--spacing-2);
+  width: var(--spacing-2);
+  border-radius: var(--rounded);
+  background-color: var(--clr-dark);
+}

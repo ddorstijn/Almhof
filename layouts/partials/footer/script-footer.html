@@ -2,7 +2,6 @@
 
 {{ $slice := slice $app -}}
 
-
 {{ $lazySizes := resources.Get "js/lazysizes.js" -}}
 {{ $lazySizes := $lazySizes | js.Build -}}
 {{ $slice = $slice | append $lazySizes -}}
@@ -10,10 +9,6 @@
 {{ $instantPage := resources.Get "js/instant.page.js" -}}
 {{ $instantPage := $instantPage | js.Build -}}
 {{ $slice = $slice | append $instantPage -}}
-
-{{ $splide := resources.Get "js/splide.js" -}}
-{{ $splide := $splide | js.Build -}}
-{{ $slice = $slice | append $splide -}}
 
 {{ $js := $slice | resources.Concat "main.js" -}}
 

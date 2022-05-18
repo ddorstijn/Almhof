@@ -1,0 +1,10 @@
+// Import all important assets
+@use './reset.scss';
+@use './variables.scss';
+@use './MaterialIcons.scss';
+
+html,
+body {
+  height: 100%;
+  background-color: var(--clr-lightest);
+}
