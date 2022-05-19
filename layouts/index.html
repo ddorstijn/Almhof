@@ -1,10 +1,7 @@
 {{ define "head/custom"}}
 
 {{ $options := (dict "transpiler" "dartsass" "includePaths" (slice "node_modules")) -}}
-{{- $critical := resources.Get "scss/index/index.critical.scss" | toCSS $options }}
-{{- if hugo.IsProduction }}
-{{- $critical = resources.Get "scss/index/index.critical.scss" | toCSS $options | postCSS }}
-{{- end }}
+{{- $critical := resources.Get "scss/index/index.critical.scss" | toCSS $options | postCSS | minify  }}
 <style>{{ $critical.Content | safeCSS }}</style>
 
 {{ if eq (hugo.Environment) "development" -}}
@@ -133,7 +130,7 @@
 {{ define "footer/custom" }}
 
   {{ $js := resources.Get "js/custom/index.js" -}}
-  {{ $js := $js | js.Build | fingerprint "sha512" -}}
+  {{ $js := $js | js.Build ( dict "minify" true ) | fingerprint "sha512" -}}
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
 
 {{ end }}

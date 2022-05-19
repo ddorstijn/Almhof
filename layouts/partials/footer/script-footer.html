@@ -3,11 +3,11 @@
 {{ $slice := slice $app -}}
 
 {{ $lazySizes := resources.Get "js/lazysizes.js" -}}
-{{ $lazySizes := $lazySizes | js.Build -}}
+{{ $lazySizes := $lazySizes | js.Build ( dict "minify" true ) -}}
 {{ $slice = $slice | append $lazySizes -}}
 
 {{ $instantPage := resources.Get "js/instant.page.js" -}}
-{{ $instantPage := $instantPage | js.Build -}}
+{{ $instantPage := $instantPage | js.Build ( dict "minify" true ) -}}
 {{ $slice = $slice | append $instantPage -}}
 
 {{ $js := $slice | resources.Concat "main.js" -}}
