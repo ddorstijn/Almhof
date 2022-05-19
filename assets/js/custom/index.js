@@ -28,18 +28,16 @@ new Splide('.splide', {
 }).mount();
 
 const today = new Date();
-const pickerArrival = flatpickr("#picker-arrival", {
+flatpickr("#picker-arrival", {
   altInput: true,
   altFormat: "F j, Y",
   dateFormat: "d-m-Y",
   defaultDate: today,
   minDate: today,
   onValueUpdate(selectedDates) {
-    updateMinDate(selectedDates[0])
+    updateMinDate(selectedDates[0] ?? today)
   }
 });
-
-console.log(pickerArrival);
 
 const pickerDeparture = flatpickr("#picker-departure", {
   altInput: true,
