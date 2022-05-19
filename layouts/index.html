@@ -15,7 +15,7 @@
   {{ $options := (dict "transpiler" "dartsass" "targetPath" "index.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
   {{ $css := resources.Get "scss/index/index.scss" | toCSS $options | postCSS -}}
   {{ $secureCSS := $css | resources.Fingerprint "sha512" -}}
-  <link rel="preload" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous" as="style" nonce="8IBTHwOdqNKAWeKl7plt8g==" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous"></noscript>
   {{ end -}}
 
