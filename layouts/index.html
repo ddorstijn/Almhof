@@ -3,7 +3,7 @@
 {{ $options := (dict "transpiler" "dartsass" "includePaths" (slice "node_modules")) -}}
 {{- $critical := resources.Get "scss/index/index.critical.scss" | toCSS $options }}
 {{- if hugo.IsProduction }}
-{{- $critical = resources.Get "scss/index/index.critical.scss" | toCSS $options }}
+{{- $critical = resources.Get "scss/index/index.critical.scss" | toCSS $options | postCSS }}
 {{- end }}
 <style>{{ $critical.Content | safeCSS }}</style>
 
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{ $css.Permalink | relURL }}">
 {{ else -}}
   {{ $options := (dict "transpiler" "dartsass" "targetPath" "index.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
-  {{ $css := resources.Get "scss/index/index.scss" | toCSS $options -}}
+  {{ $css := resources.Get "scss/index/index.scss" | toCSS $options | postCSS -}}
   {{ $secureCSS := $css | resources.Fingerprint "sha512" -}}
   <link data-loadcss rel="stylesheet" media="print" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous">
   <noscript><link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous"></noscript>
