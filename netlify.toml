@@ -6,16 +6,16 @@
   NPM_VERSION = "8.5.5"
 
 [context.production]
-  command = "./build.sh && npm run build"
+  command = "chmod +x install_sass.sh && ./install_sass.sh && npm run build"
 
 [context.deploy-preview]
-  command = "./build.sh && npm run build -- -b $DEPLOY_PRIME_URL"
+  command = "chmod +x install_sass.sh && ./install_sass.sh && npm run build -- -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy]
-  command = "./build.sh && npm run build -- -b $DEPLOY_PRIME_URL"
+  command = "chmod +x install_sass.sh && ./install_sass.sh && npm run build -- -b $DEPLOY_PRIME_URL"
 
 [context.next]
-  command = "./build.sh && npm run build"
+  command = "chmod +x install_sass.sh && ./install_sass.sh && npm run build"
 
 [context.next.environment]
   HUGO_ENV = "next"
