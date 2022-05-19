@@ -2,10 +2,9 @@ import Splide from '@splidejs/splide';
 import flatpickr from "flatpickr";
 
 // Async load css 
-document.querySelectorAll("[data-loadcss]")
-  .addEventListener("load", function() {
-    this.media = "all";
-  });
+document.querySelectorAll("[data-loadcss]").forEach(el => {
+  el.media = "all";
+});
 
 Date.prototype.addDays = function (days) {
   const date = new Date(this.valueOf());
