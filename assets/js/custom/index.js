@@ -12,11 +12,6 @@ Date.prototype.addDays = function (days) {
   return date;
 };
 
-new Splide('.splide', {
-  gap: '2rem',
-  keyboard: true,
-}).mount();
-
 if (window.netlifyIdentity) {
   window.netlifyIdentity.on("init", (user) => {
     if (!user) {
@@ -26,6 +21,11 @@ if (window.netlifyIdentity) {
     }
   });
 }
+
+new Splide('.splide', {
+  gap: '2rem',
+  keyboard: true,
+}).mount();
 
 const today = new Date();
 const pickerArrival = flatpickr("#picker-arrival", {
@@ -38,6 +38,8 @@ const pickerArrival = flatpickr("#picker-arrival", {
     updateMinDate(selectedDates[0])
   }
 });
+
+console.log(pickerArrival);
 
 const pickerDeparture = flatpickr("#picker-departure", {
   altInput: true,
