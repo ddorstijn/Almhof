@@ -1,4 +1,15 @@
-/* fallback */
+@font-face {
+  src: url(/fonts/RobotoFlex.ttf);
+  font-family: "Roboto Flex";
+}
+
+@font-face {
+  src: url(/fonts/RobotoSlab.ttf);
+  font-family: "Roboto Slab";
+  font-weight: bold;
+}
+
+/* Material Icons fallback */
 @font-face {
   font-family: "Material Symbols Outlined";
   font-style: normal;

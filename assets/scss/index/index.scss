@@ -1,0 +1,125 @@
+@use "@splidejs/splide/dist/css/splide-core.min.css";
+
+.relative {
+  position: relative;
+}
+
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
+
+.text-lightest {
+  color: var(--clr-lightest);
+}
+
+section {
+  padding-inline: var(--spacing-4);
+  margin-block: var(--spacing-8);
+
+  .image {
+    display: block;
+    border-radius: var(--rounded-lg);
+    margin-block: var(--spacing-6);
+  }
+
+  :where(.title) {
+    &[data-type="center"] {
+      text-align: center;
+    }
+  }
+
+  .content {
+    margin-block: var(--spacing-2);
+  }
+}
+
+// Splide carousel
+.splide {
+  display: block;
+  padding: var(--spacing-4) var(--spacing-6) var(--spacing-12);
+  background-color: var(--clr-darkest);
+
+  &__arrows {
+    color: white;
+    font-size: var(--text-2xl);
+    line-height: var(--lineheight-2xl);
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    inset-inline: 0;
+    top: 50%;
+    width: 100%;
+  
+    .splide__arrow {
+      transition: opacity 250ms;
+      &:disabled {
+        opacity: 50%;
+      }
+  
+      &--prev {
+        margin-left: calc(-1 * var(--spacing-6));
+      }
+  
+      &--next {
+        margin-right: calc(-1 * var(--spacing-6));
+      }
+    }
+  }
+  
+  &__pagination {
+    gap: var(--spacing-1);
+  }
+  
+  &__pagination button.is-active {
+    background-color: var(--clr-light);
+  }
+  
+  &__pagination button {
+    height: var(--spacing-2);
+    width: var(--spacing-2);
+    border-radius: var(--rounded);
+    background-color: var(--clr-dark);
+  }
+}
+
+.card {
+  display: inline-block;
+  height: fit-content;
+  background-color: var(--clr-lightest);
+  padding: 0 var(--spacing-4) var(--spacing-4);
+  margin-top: var(--spacing-6);
+  border-radius: var(--rounded-xl);
+  box-shadow: var(--shadow-lg);
+
+  &__image {
+    margin-top: calc(-1 * var(--spacing-6));
+
+    img {
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-lg);
+    }
+  }
+
+  &__header {
+    h3 {
+      line-height: var(--lineheight-base);
+      font-size: var(--text-xl);
+    }
+
+    .subtitle {
+      color: var(--clr-dark);
+    }
+  }
+
+  &__content {
+    margin-top: var(--spacing-2);
+
+    a {
+      display: inline-block;
+      padding: var(--spacing-2) 0 0;
+      font-size: var(--text-sm);
+      color: var(--clr-darkest);
+      cursor: pointer;
+    }
+  }
+}  

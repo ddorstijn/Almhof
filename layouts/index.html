@@ -1,51 +1,57 @@
 {{ define "head/custom"}}
 
+{{ $options := (dict "transpiler" "dartsass" "includePaths" (slice "node_modules")) -}}
+{{- $critical := resources.Get "scss/index/index.critical.scss" | toCSS $options }}
+{{- if hugo.IsProduction }}
+{{- $critical = resources.Get "scss/index/index.critical.scss" | toCSS $options | postCSS }}
+{{- end }}
+<style>{{ $critical.Content | safeCSS }}</style>
+
 {{ if eq (hugo.Environment) "development" -}}
   {{ $options := (dict "transpiler" "dartsass" "targetPath" "index.css" "enableSourceMap" true "includePaths" (slice "node_modules")) -}}
-  {{ $css := resources.Get "scss/index.scss" | toCSS $options -}}
+  {{ $css := resources.Get "scss/index/index.scss" | toCSS $options -}}
   <link rel="stylesheet" href="{{ $css.Permalink | relURL }}">
 {{ else -}}
   {{ $options := (dict "transpiler" "dartsass" "targetPath" "index.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
-  {{ $css := resources.Get "scss/index.scss" | toCSS $options | postCSS -}}
+  {{ $css := resources.Get "scss/index/index.scss" | toCSS $options | postCSS -}}
   {{ $secureCSS := $css | resources.Fingerprint "sha512" -}}
-  <link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous">
-{{ end -}}
+  <link rel="preload" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous"></noscript>
+  {{ end -}}
 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 {{ end }}
 
 {{ define "main" }}
-{{ $imgSrc := (resources.GetMatch `images/Hero.jpg`).RelPermalink | safeURL }} 
-<div class="hero w-full h-full flex flex-col">
-  <div class="hero__image relative grow flex items-end" style="--image-url: url({{$imgSrc}});">
-    <div class="pl-10 mb-6 z-10">
-      <span class="text-red-100 font-bold text-xl">We want</span>
-      <h1 class="text-white text-5xl font-bold">Happiness<br>Peace</h1>
+<div class="hero">
+  <div class="hero__image">
+    {{ partial "main/image.html" (dict "Class" "background" "Destination" "images/Hero.jpg") }}
+    <div class="hero__image-lead">
+      <span>We want</span>
+      <h1>Happiness<br>Peace</h1>
     </div>
   </div>
-  <div class="px-6 mb-8 z-10">
-    <div class="px-4 py-5 bg-white rounded-lg shadow-lg">
-      <h2 class="font-bold text-lg mb-4 text-primary-dark-shade">Check availability</h2>
-      <form action="https://pensionalmhof.at/en/availability">
-        <div class="grid grid-cols-2 gap-2 mb-4">
-          <label>
-            <span class="text-sm text-slate-600 flex items-center gap-1">
-              <i class="material-symbols-outlined">flight_land</i>
-              Check in
-            </span>
-            <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" placeholder="dd-MM-yyyy" name="checkin" required>
-          </label>
-          <label>
-            <span class="text-sm text-slate-600 flex items-center gap-1">
-              <i class="material-symbols-outlined">flight_takeoff</i>
-              Check out
-            </span>
-            <input class="w-full p-1 bg-transparent text-lg text-gray-900 font-bold" type="date" placeholder="dd-MM-yyyy" name="checkout" required>
-          </label>
-        </div>
-        <button type="submit" class="py-3 px-4 bg-primary-dark-accent rounded w-full block text-primary-light-shade font-bold">Check</button>
-      </form>
-    </div>
+  <div class="hero-card">
+    <h2>Check availability</h2>
+    <form action="https://pensionalmhof.at/en/availability">
+      <div class="form-group">
+        <label>
+          <span>
+            <i class="material-symbols-outlined">flight_land</i>
+            Check in
+          </span>
+          <input id="picker-arrival" name="checkin" type="text" placeholder="Select Date.." readonly="readonly">
+        </label>
+        <label>
+          <span>
+            <i class="material-symbols-outlined">flight_takeoff</i>
+            Check out
+          </span>
+          <input id="picker-departure" name="checkout" type="text" placeholder="Select Date.." readonly="readonly">
+        </label>
+      </div>
+      <button type="submit" class="btn" data-type="primary">Check</button>
+    </form>
   </div>
 </div>
 
@@ -54,25 +60,23 @@
   
   {{- $welcome := (index (where $sections.Resources ".Params.section" "Welcome") 0) }}
   {{ with $welcome }}
-  <section class="px-4 my-8">
-    {{ partial "main/image.html" (dict "Destination" (index (.Param "images") 0)) }}
-    <div class="prose prose-md mt-4">
-      <h2>{{.Title}}</h2>
-      <p>{{ default "" .Content }}</p>
-    </div>
+  <section>
+    {{ partial "main/image.html" (dict "Class" "image" "Destination" (index (.Param "images") 0)) }}
+    <h2 class="title">{{.Title}}</h2>
+    <div class="content">{{ default "" .Content }}</div>
   </section>
   {{ end }}
 
-  <section class="splide block pt-4 pb-12 px-6 w-full bg-primary-dark-shade" aria-labelledby="rooms">
-    <h2 id="rooms" class="block text-center font-bold text-primary-light-shade mb-6">Rooms</h2>
+  <section class="splide" aria-labelledby="rooms">
+    <h2 id="rooms" class="title | text-lightest" data-type="center">Rooms</h2>
     <div class="relative">
-      <div class="splide__arrows text-white text-2xl absolute flex justify-between inset-x-0 top-1/2 w-full">
-        <button class="splide__arrow splide__arrow--prev disabled:opacity-50 -ml-6">
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev">
           <span class="material-symbols-outlined">
             navigate_before
           </span>
         </button>
-        <button class="splide__arrow splide__arrow--next disabled:opacity-50 -mr-6">
+        <button class="splide__arrow splide__arrow--next">
           <span class="material-symbols-outlined">
             navigate_next
           </span>
@@ -82,24 +86,27 @@
         <ul class="splide__list">
           {{ $section := where $.Site.RegularPages "Section" "rooms"}}
           {{ range $section }}
-          <li class="splide__slide">
-            <div class="inline-block bg-primary-light-shade px-4 mt-6 rounded-xl shadow-lg">
-              <div class="-mt-6 shadow">
-                {{ with (index (.Params.images) 0) }}
-                  {{ partial "main/image.html" (dict "Destination" .) }}
-                {{end}}
-              </div>
-              <div class="prose prose-md py-6 px-3">
-                <h3 class="text-primary-dark-shade mb-0 leading-none">{{ .Title }}</h3>
-                <span class="text-primary-dark-accent">
+          <li class="splide__slide card">
+            <div class="card__image">
+              {{ with (index (.Params.images) 0) }}
+                {{ partial "main/image.html" (dict "Destination" .) }}
+              {{end}}
+            </div>
+            <div class="mt-4">
+              <div class="card__header">
+                <h3>{{ .Title }}</h3>
+                <span class="subtitle">
                   {{ $list := .Params.highlights }}
                   {{ range $idx, $el := $list }}
                   {{.}} {{ if ne (add $idx 1) (len $list) }} ∙ {{ end }}
                   {{ end }}
                 </span>
-                <p class="mt-3">
+              </div>
+              <div class="card__content">
+                <p>
                   {{.Description}}
                 </p>
+                <a>Read more</a>
               </div>
             </div>
           </li>
@@ -111,10 +118,12 @@
 
   {{- $aboutus := (index (where $sections.Resources ".Params.section" "About us") 0) }}
   {{ with $aboutus }}
-  <section class="px-4 my-8 prose prose-md">
-    <h2>{{.Title}}</h2>
-    <p>{{ default "" .Content }}</p>
-    {{ partial "main/image.html" (dict "Destination" (index (.Param "images") 0)) }}
+  <section>
+    <h2 class="title">{{.Title}}</h2>
+    <div class="content">
+      {{ default "" .Content }}
+    </div>
+    {{ partial "main/image.html" (dict "Class" "image" "Destination" (index (.Param "images") 0)) }}
   </section>
   {{ end }}
 

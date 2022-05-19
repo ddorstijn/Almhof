@@ -1,10 +1,128 @@
 // Import all important assets
-@use './reset.scss';
-@use './variables.scss';
-@use './MaterialIcons.scss';
+@use './utils/reset.scss';
+@use './utils/variables.scss';
+@use './utils/fonts.scss';
 
 html,
 body {
   height: 100%;
+}
+
+body {
   background-color: var(--clr-lightest);
+  font-family: "Roboto Flex";
+  color: var(--clr-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab";
+  color: var(--clr-darkest);
+  font-size: var(--text-2xl);
+}
+
+.nav {
+  background-color: white;
+  height: 10vh;
+  padding-inline: var(--spacing-4);
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  box-shadow: var(--shadow-lg);
+
+  .nav__bar {
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo img {
+      height: var(--spacing-16);
+    }
+  }
+}
+
+.nav__right {
+  display: flex; 
+  align-items: center;
+}
+
+.langsel {
+  position: relative;
+
+  summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  > ul {
+    min-width: max;
+    position: absolute;
+    background-color: white;
+    padding: var(--spacing-2) var(--spacing-4);
+    box-shadow: var(--shadow);
+    border-radius: var(--rounded);
+    top: 100%;
+    right: 0;
+  }
+}
+
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-2);
+  margin-left: var(--spacing-1);
+  font-size: var(--text-sm);
+  line-height: var(--lineheight-sm);
+  color: gray;
+  border-radius: var(--rounded-lg); 
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .btn-open {
+    height: var(--spacing-6);
+    width: var(--spacing-6);
+  }
+
+  .btn-close {
+    display: none;
+    height: var(--spacing-6);
+    width: var(--spacing-6);
+  }
+}
+
+.mobile-menu {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+body > footer {
+  width: 100%;
+  font-size: var(--text-xs);
+  line-height: var(--lineheight-sm);
+  color: var(--clr-lightest);
+  background-color: var(--clr-darkest);
+  display: flex;
+  justify-content: center;
+}
+
+p + p {
+  margin-top: var(--spacing-4);
 }
