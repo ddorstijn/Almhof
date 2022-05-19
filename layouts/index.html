@@ -14,9 +14,8 @@
   {{ $secureCSS := $css | resources.Fingerprint "sha512" -}}
   <link data-loadcss rel="stylesheet" media="print" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous">
   <noscript><link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous"></noscript>
-  {{ end -}}
+{{ end }}
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 {{ end }}
 
 {{ define "main" }}
