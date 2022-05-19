@@ -43,5 +43,5 @@ const pickerDeparture = flatpickr("#picker-departure", {
 });
 
 function updateMinDate(date) {
-  pickerDeparture.config.minDate = date;
+  pickerDeparture.config.minDate = date.addDays(1);
 }
