@@ -1,3 +1,4 @@
+import Splide from '@splidejs/splide';
 import flatpickr from "flatpickr";
 
 Date.prototype.addDays = function (days) {
@@ -6,30 +7,30 @@ Date.prototype.addDays = function (days) {
   return date;
 };
 
-// new Splide('.splide', {
-//   gap: '2rem',
-//   keyboard: true,
-//   autoWidth: true,
-//   perPage: 1,
-//   mediaQuery: 'min',
-//   breakpoints: {
-// 		640: {
-// 			perPage: 2,
-// 		},
-//     768: {
-//       perPage: 3,
-//     },
-//     1024: {
-//       perPage: 4,
-//     },
-//     1280: {
-//       perPage: 5
-//     },
-//     1536: {
-//       perPage: 6
-//     }
-//   }
-// }).mount();
+new Splide('.splide', {
+  gap: '2rem',
+  keyboard: true,
+  autoWidth: true,
+  perPage: 1,
+  mediaQuery: 'min',
+  breakpoints: {
+		640: {
+			perPage: 2,
+		},
+    768: {
+      perPage: 3,
+    },
+    1024: {
+      perPage: 4,
+    },
+    1280: {
+      perPage: 5
+    },
+    1536: {
+      perPage: 6
+    }
+  }
+}).mount();
 
 const today = new Date();
 flatpickr("#picker-arrival", {
