@@ -84,27 +84,29 @@
         <ul class="splide__list">
           {{ $section := where $.Site.RegularPages "Section" "rooms"}}
           {{ range $section }}
-          <li class="splide__slide card">
-            <div class="card__image">
-              {{ with (index (.Params.images) 0) }}
-                {{ partial "main/image.html" (dict "Destination" .) }}
-              {{end}}
-            </div>
-            <div class="mt-4">
-              <div class="card__header">
-                <h3>{{ .Title }}</h3>
-                <span class="subtitle">
-                  {{ $list := .Params.highlights }}
-                  {{ range $idx, $el := $list }}
-                  {{.}} {{ if ne (add $idx 1) (len $list) }} ∙ {{ end }}
-                  {{ end }}
-                </span>
+          <li class="splide__slide">
+            <div class="card">
+              <div class="card__image">
+                {{ with (index (.Params.images) 0) }}
+                  {{ partial "main/image.html" (dict "Destination" .) }}
+                {{end}}
               </div>
-              <div class="card__content">
-                <p>
-                  {{.Description}}
-                </p>
-                <a>Read more</a>
+              <div class="mt-4">
+                <div class="card__header">
+                  <h3>{{ .Title }}</h3>
+                  <span class="subtitle">
+                    {{ $list := .Params.highlights }}
+                    {{ range $idx, $el := $list }}
+                    {{.}} {{ if ne (add $idx 1) (len $list) }} ∙ {{ end }}
+                    {{ end }}
+                  </span>
+                </div>
+                <div class="card__content">
+                  <p>
+                    {{.Description}}
+                  </p>
+                  <a>Read more</a>
+                </div>
               </div>
             </div>
           </li>

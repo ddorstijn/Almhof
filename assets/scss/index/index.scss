@@ -88,6 +88,8 @@ section {
 .card {
   display: inline-block;
   height: fit-content;
+  width: calc(100vw - 2 * var(--spacing-6));
+  max-width: 400px;
   background-color: var(--clr-lightest);
   padding: 0 var(--spacing-4) var(--spacing-4);
   margin-top: var(--spacing-6);
@@ -100,6 +102,8 @@ section {
     img {
       border-radius: var(--rounded-lg);
       box-shadow: var(--shadow-lg);
+      height: 250px;
+      object-fit: cover;
     }
   }
 

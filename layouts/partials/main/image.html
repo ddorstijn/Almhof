@@ -24,7 +24,7 @@
   {{ $imgSrcSet = (delimit $imgSrcSet ",") -}}
 
   {{ if gt $image.Width site.Params.smallLimit -}}
-    <figure class="figure">
+    <figure class="figure" aria-label="Image">
       <img class="{{ printf `%s %s` $class `lazyload blur-up`}}" data-sizes="auto" src="{{ $lqip.Permalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}">
       <noscript><img class="{{ printf `%s` $class}}" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}"></noscript>
       {{ with $.Title }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end -}}

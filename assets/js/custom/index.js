@@ -15,6 +15,7 @@ Date.prototype.addDays = function (days) {
 new Splide('.splide', {
   gap: '2rem',
   keyboard: true,
+  autoWidth: true,
   perPage: 1,
   mediaQuery: 'min',
   breakpoints: {
