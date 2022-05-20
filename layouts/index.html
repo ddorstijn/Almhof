@@ -58,8 +58,10 @@
   {{ with $welcome }}
   <section>
     {{ partial "main/image.html" (dict "Class" "image" "Destination" (index (.Param "images") 0)) }}
-    <h2 class="title">{{.Title}}</h2>
-    <div class="content">{{ default "" .Content }}</div>
+    <div>
+      <h2 class="title">{{.Title}}</h2>
+      <div class="content">{{ default "" .Content }}</div>
+    </div>
   </section>
   {{ end }}
 
@@ -115,9 +117,11 @@
   {{- $aboutus := (index (where $sections.Resources ".Params.section" "About us") 0) }}
   {{ with $aboutus }}
   <section>
-    <h2 class="title">{{.Title}}</h2>
-    <div class="content">
-      {{ default "" .Content }}
+    <div>
+      <h2 class="title">{{.Title}}</h2>
+      <div class="content">
+        {{ default "" .Content }}
+      </div>
     </div>
     {{ partial "main/image.html" (dict "Class" "image" "Destination" (index (.Param "images") 0)) }}
   </section>
