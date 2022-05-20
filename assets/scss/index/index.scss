@@ -43,9 +43,7 @@ section {
   background-color: var(--clr-darkest);
 
   &__arrows {
-    color: white;
-    font-size: var(--text-2xl);
-    line-height: var(--lineheight-2xl);
+    stroke: white;
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -70,7 +68,8 @@ section {
   }
   
   &__pagination {
-    gap: var(--spacing-1);
+    margin-top: var(--spacing-2);
+    gap: var(--spacing-2);
   }
   
   &__pagination button.is-active {
@@ -80,7 +79,7 @@ section {
   &__pagination button {
     height: var(--spacing-2);
     width: var(--spacing-2);
-    border-radius: var(--rounded);
+    border-radius: var(--rounded-full);
     background-color: var(--clr-dark);
   }
 }

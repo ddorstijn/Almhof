@@ -34,14 +34,22 @@
       <div class="form-group">
         <label>
           <span>
-            <i class="material-symbols-outlined">flight_land</i>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plane-arrival" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M15 12h5a2 2 0 0 1 0 4h-15l-3 -6h3l2 2h3l-2 -7h3z" transform="rotate(15 12 12) translate(0 -1)" />
+              <line x1="3" y1="21" x2="21" y2="21" />
+            </svg>
             Check in
           </span>
           <input id="picker-arrival" name="checkin" type="text" placeholder="Select Date.." readonly="readonly" required>
         </label>
         <label>
           <span>
-            <i class="material-symbols-outlined">flight_takeoff</i>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plane-departure" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M15 12h5a2 2 0 0 1 0 4h-15l-3 -6h3l2 2h3l-2 -7h3z" transform="rotate(-15 12 12) translate(0 -1)" />
+              <line x1="3" y1="21" x2="21" y2="21" />
+            </svg>
             Check out
           </span>
           <input id="picker-departure" name="checkout" type="text" placeholder="Select Date.." readonly="readonly" required>
@@ -70,15 +78,17 @@
     <h2 id="rooms" class="title | text-lightest" data-type="center">Rooms</h2>
     <div class="relative">
       <div class="splide__arrows">
-        <button class="splide__arrow splide__arrow--prev">
-          <span class="material-symbols-outlined">
-            navigate_before
-          </span>
+        <button class="splide__arrow splide__arrow--prev" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <polyline points="15 6 9 12 15 18" />
+          </svg>
         </button>
-        <button class="splide__arrow splide__arrow--next">
-          <span class="material-symbols-outlined">
-            navigate_next
-          </span>
+        <button class="splide__arrow splide__arrow--next" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <polyline points="9 6 15 12 9 18" />
+          </svg>
         </button>
       </div>
       <div class="splide__track">
@@ -106,7 +116,7 @@
                   <p>
                     {{.Description}}
                   </p>
-                  <a href="{{ .RelPermalink }}">Read more</a>
+                  <a href="{{ .RelPermalink }}">See full details</a>
                 </div>
               </div>
             </div>
