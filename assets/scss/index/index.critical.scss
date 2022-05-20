@@ -33,6 +33,7 @@
         object-fit: cover;
         width: 100%;
         height: calc(100% + 5rem);
+        filter: brightness(75%);
       }
     }
     
@@ -42,7 +43,7 @@
       z-index: 10;
   
       span {
-        color: red;
+        color: var(--clr-lightest);
         font-weight: bold;
         font-size: var(--text-xl);
         line-height: var(--lineheight-xl);
