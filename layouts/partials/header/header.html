@@ -1,6 +1,6 @@
 <nav class="nav">
   <div class="nav__bar">
-    <a class="logo" href="{{ `/` | relLangURL }}">
+    <a class="logo" href="{{ `/` | relLangURL }}" aria-label="Logo">
       {{ $logo := "/images/logo.webp" | relURL }}
       {{ partial "main/image.html" (dict "Destination" $logo ) }}
     </a>
@@ -20,8 +20,7 @@
         </ul>
       </details>
 
-      <button data-collapse-toggle="mobile-menu-2" type="button" class="menu-toggle" aria-controls="mobile-menu-2" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
+      <button data-collapse-toggle="mobile-menu-2" type="button" class="menu-toggle" aria-controls="mobile-menu-2" aria-expanded="false" aria-label="Open main menu">
         <svg class="btn-open" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
