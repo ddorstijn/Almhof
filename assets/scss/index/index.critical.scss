@@ -36,7 +36,7 @@
       }
     }
     
-    &__image-lead {
+    &-lead {
       padding-left: var(--spacing-10);
       margin-bottom: var(--spacing-6);
       z-index: 10;
@@ -98,6 +98,7 @@
         line-height: var(--lineheight-lg);
         color: var(--clr-text);
         font-weight: bold;
+        background-color: transparent;
       }
     }
   }

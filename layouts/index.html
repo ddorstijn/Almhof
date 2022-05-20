@@ -21,11 +21,11 @@
 {{ define "main" }}
 <div class="hero">
   <div class="hero__image">
-    {{ partial "main/image.html" (dict "Class" "background" "Destination" "images/Hero.jpg") }}
     <div class="hero__image-lead">
       <span>We want</span>
       <h1>Happiness<br>Peace</h1>
     </div>
+    {{ partial "main/image.html" (dict "Class" "background" "Destination" "images/Hero.jpg") }}
   </div>
   <div class="hero-card">
     <h2>Check availability</h2>
@@ -36,14 +36,14 @@
             <i class="material-symbols-outlined">flight_land</i>
             Check in
           </span>
-          <input id="picker-arrival" name="checkin" type="text" placeholder="Select Date.." readonly="readonly">
+          <input id="picker-arrival" name="checkin" type="text" placeholder="Select Date.." readonly="readonly" required>
         </label>
         <label>
           <span>
             <i class="material-symbols-outlined">flight_takeoff</i>
             Check out
           </span>
-          <input id="picker-departure" name="checkout" type="text" placeholder="Select Date.." readonly="readonly">
+          <input id="picker-departure" name="checkout" type="text" placeholder="Select Date.." readonly="readonly" required>
         </label>
       </div>
       <button type="submit" class="btn" data-type="primary">Check</button>
