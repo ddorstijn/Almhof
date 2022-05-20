@@ -1,7 +1,8 @@
 <nav class="nav">
   <div class="nav__bar">
     <a class="logo" href="{{ `/` | relLangURL }}">
-      <img src="{{ `logo.webp` | relURL }}" alt="Logo">
+      {{ $logo := "/images/logo.webp" | relURL }}
+      {{ partial "main/image.html" (dict "Destination" $logo ) }}
     </a>
     <div class="nav__right">
       <details class="langsel">

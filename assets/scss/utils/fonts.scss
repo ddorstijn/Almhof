@@ -1,12 +1,14 @@
 @font-face {
   src: url(/fonts/RobotoFlex.ttf);
   font-family: "Roboto Flex";
+  font-display: swap;
 }
 
 @font-face {
   src: url(/fonts/RobotoSlab.ttf);
   font-family: "Roboto Slab";
   font-weight: bold;
+  font-display: swap;
 }
 
 /* Material Icons fallback */
