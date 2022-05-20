@@ -97,9 +97,15 @@
         font-size: var(--text-lg);
         line-height: var(--lineheight-lg);
         color: var(--clr-text);
+        font-family: "Roboto Flex";
         font-weight: bold;
         background-color: transparent;
+        
+        .flatpicker-mobile {
+          font-family: revert;
+        }
       }
+
     }
   }
 }
