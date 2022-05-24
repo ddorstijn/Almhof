@@ -6,7 +6,13 @@
     </a>
     <div class="nav__right">
       <details class="langsel">
-        <summary role="button">{{ .Site.Params.languageISO }}</summary>
+        <summary role="button">
+          {{ .Site.Params.languageISO }}
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
         <ul>
           {{ if .IsTranslated -}}
             {{ range .Translations }}
@@ -21,10 +27,11 @@
       </details>
 
       <button data-collapse-toggle="mobile-menu-2" type="button" class="menu-toggle" aria-controls="mobile-menu-2" aria-expanded="false" aria-label="Open main menu">
-        <svg class="btn-open" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-            clip-rule="evenodd"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="18" x2="20" y2="18" />
         </svg>
         <svg class="btn-close" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
