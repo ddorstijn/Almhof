@@ -6,7 +6,7 @@
     languageISO = "EN"
 
 [de]
-  languageName = "German"
+  languageName = "Deutsch"
   languageCode = "de"
   weight = 15
   [de.params]
