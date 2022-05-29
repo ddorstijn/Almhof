@@ -124,6 +124,20 @@
     </div>
   </section>
 
+  <section>
+    {{ $facilities := .Site.GetPage "/facilities" }}
+    {{ $facilities := $facilities.Resources.ByType "page" }}
+    {{ $facilities := cond .Site.BuildDrafts $facilities (where $facilities "Draft" "==" false) }}
+    {{- range $facilities }}
+      <div class="facility">
+        {{ with .Params.icon }}
+          {{ . | safeHTML }}
+        {{end}}
+        <h3>{{ .Title }}</h3>
+      </div>
+    {{ end }}
+  </section>
+
   {{- $aboutus := (index (where $sections.Resources ".Params.section" "About us") 0) }}
   {{ with $aboutus }}
   <section>

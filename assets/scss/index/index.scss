@@ -1,1 +1,10 @@
 @use "@splidejs/splide/dist/css/splide-core.min.css";
+
+.facility  {
+    display: grid;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
