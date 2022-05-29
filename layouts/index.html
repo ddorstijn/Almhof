@@ -6,7 +6,7 @@
 
 {{ if eq (hugo.Environment) "development" -}}
   {{ $options := (dict "transpiler" "dartsass" "targetPath" "index.css" "enableSourceMap" true "includePaths" (slice "node_modules")) -}}
-  {{ $css := resources.Get "scss/index/index.scss" | toCSS $options | postCSS -}}
+  {{ $css := resources.Get "scss/index/index.scss" | toCSS $options -}}
   <link rel="stylesheet" href="{{ $css.Permalink | relURL }}">
 {{ else -}}
   {{ $options := (dict "transpiler" "dartsass" "targetPath" "index.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
@@ -22,9 +22,7 @@
 {{ define "main" }}
 <div class="hero">
   <div class="hero__image">
-    <div class="hero__image-lead">
-      <h1>More than lovely rooms and a delicious breakfast</h1>
-    </div>
+    <h1>More than lovely rooms and a delicious breakfast</h1>
     {{ partial "main/image.html" (dict "Class" "background" "Destination" "images/Hero.jpg") }}
   </div>
   <div class="hero-card">
@@ -74,7 +72,7 @@
   {{ end }}
 
   <section class="splide" aria-labelledby="rooms">
-    <h2 id="rooms" class="title | text-lightest" data-type="center">Rooms</h2>
+    <h2 id="rooms" class="title" data-type="center">Rooms</h2>
     <div class="relative">
       <div class="splide__arrows">
         <button class="splide__arrow splide__arrow--prev" type="button">

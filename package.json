@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@splidejs/splide": "^4.0.2",
-    "flatpickr": "^4.6.13"
+    "flatpickr": "^4.6.13",
+    "open-props": "^1.3.16"
   }
 }

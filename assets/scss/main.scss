@@ -1,137 +1,125 @@
 // Import all important assets
-@use './utils/reset.scss';
-@use './utils/variables.scss';
-@use './utils/fonts.scss';
+@use "./utils/variables.scss";
+@use "open-props/borders.min.css";
+@use "open-props/fonts.min.css";
+@use "open-props/zindex.min.css";
+@use "open-props/sizes.min.css";
+@use "open-props/normalize.min.css";
 
 html,
 body {
   height: 100%;
 }
 
-body {
-  background-color: var(--clr-lightest);
-  font-family: "Roboto";
-  color: var(--clr-text);
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto Slab";
-  color: var(--clr-darkest);
-  font-size: var(--text-2xl);
-}
-
-.nav {
-  background-color: white;
-  height: var(--spacing-20);
-  padding-inline: var(--spacing-4);
+body > header {
   position: fixed;
   width: 100%;
-  z-index: 20;
-  box-shadow: var(--shadow-lg);
-
-  .nav__bar {
-    height: 100%;
-    padding-block: var(--spacing-1);
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-
-    .logo {
-      height: 100%;
-
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-      }
-    }
-  }
-}
-
-.nav__right {
-  display: flex; 
+  height: var(--size-10);
+  padding-inline: var(--size-2);
+  
+  display: flex;
   align-items: center;
+  justify-content: end;
+
+  background-color: white;
+  box-shadow: var(--shadow-2);
+
+  z-index: var(--layer-3);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--surface-2);
+    color: var(--text-2);
+  }
 }
 
-.langsel {
-  position: relative;
+.logo {
+  margin-right: auto;
+  height: 100%;
+  
+  img {
+    width: fit-content;
+    height: 100%;
 
-  summary {
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-  }
-
-  > ul {
-    min-width: max;
-    position: absolute;
-    background-color: white;
-    padding: var(--spacing-2) var(--spacing-4);
-    box-shadow: var(--shadow-xl);
-    border-radius: var(--rounded);
-    top: 100%;
-    right: 0;
+    object-fit: contain;
   }
 }
 
 .menu-toggle {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--spacing-2);
-  margin-left: var(--spacing-1);
-  font-size: var(--text-sm);
-  line-height: var(--lineheight-sm);
-  color: gray;
-  border-radius: var(--rounded-lg); 
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
-  .btn-open {
-    height: var(--spacing-6);
-    width: var(--spacing-6);
-  }
-
-  .btn-close {
-    display: none;
-    height: var(--spacing-6);
-    width: var(--spacing-6);
-  }
-}
-
-.mobile-menu {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-body > footer {
-  width: 100%;
-  font-size: var(--text-xs);
-  line-height: var(--lineheight-sm);
-  color: var(--clr-lightest);
-  background-color: var(--clr-darkest);
   display: flex;
-  justify-content: center;
+  align-items: center;
+
+  &[aria-expanded="false"] {
+    .icon-open {
+      display: block;
+    }
+    
+    .icon-close {
+      display: none;
+    }
+  
+    + .menu-links {
+      display: none;   
+    }
+  }
+
+  &[aria-expanded="true"] {
+    .icon-open {
+      display: none;
+    }
+    
+    .icon-close {
+      display: block;
+    }
+  
+    + .menu-links {
+      display: block;   
+    }
+  }
 }
 
-p + p {
-  margin-top: var(--spacing-4);
+.menu-links {
+  position: absolute;
+  list-style: none;
+  padding: var(--size-2);
+
+  li {
+    padding: 0;
+  }
+}
+
+#language-selector {
+  position: relative;
+  z-index: var(--layer-5);
+
+  &__links {
+    top: 100%;
+    right: 0;
+
+    border-radius: var(--radius-2);
+    background-color: var(--surface-3);
+
+    li + li {
+      margin-top: var(--size-1);
+    }
+  }
+}
+
+#main-menu__links {
+  top: var(--size-10);
+  left: 0;
+  right: 0;
+
+  height: calc(100vh - var(--size-10));
+
+  background-color: var(--surface-2);
+  z-index: var(--layer-4);
+}
+
+.padder {
+  height: var(--size-10);
+}
+
+button.transparent {
+  background-color: transparent;
 }
