@@ -1,5 +1,33 @@
 @use "@splidejs/splide/dist/css/splide-core.min.css";
 
+
+section {
+    padding-inline: var(--size-3);
+    margin-top: var(--size-5);
+    
+    .title {
+        margin-bottom: var(--size-3);
+    }
+
+    .content {
+
+    }
+
+    .image {
+        border-radius: var(--radius-2);
+    }
+} 
+
+section.splide {
+    background-color: var(--brand-dark);
+    color: var(--brand-light);
+}
+
+.card {
+    background-color: var(--brand-light);
+    color: var(--text-2);
+}
+
 .facility  {
     display: grid;
     grid-auto-flow: column;
