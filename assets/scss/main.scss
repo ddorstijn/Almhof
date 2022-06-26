@@ -1,10 +1,11 @@
 // Import all important assets
-@use "./utils/variables.scss";
 @use "open-props/borders.min.css";
 @use "open-props/fonts.min.css";
 @use "open-props/zindex.min.css";
 @use "open-props/sizes.min.css";
+@use "open-props/shadows.min.css";
 @use "open-props/normalize.min.css";
+@use "./utils/variables.scss";
 
 svg {
   stroke: currentColor;

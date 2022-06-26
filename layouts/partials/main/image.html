@@ -1,37 +1,36 @@
-{{ $image := "" -}}
 {{ $class := default "" .Class}}
-{{ if (urls.Parse .Destination).IsAbs }}
-  {{ $image = resources.GetRemote .Destination -}}
-{{ else -}}
-  {{ $image = resources.GetMatch .Destination -}}
-{{ end -}}
+{{ $image := resources.GetMatch .Destination -}}
 {{ with $image -}}
-  {{ $lqip := $image.Resize (printf "%s webp icon" site.Params.lqipWidth) -}}
+  {{ if eq (path.Ext  $image.Permalink) ".svg" }}
+    {{ printf "/assets/%s" . | readFile | safeHTML }}
+  {{ else }}
+    {{ $lqip := $image.Resize (printf "%s webp icon" site.Params.lqipWidth) -}}
 
-  {{ $imgSrc := "" -}}
-  {{ $imgSrcSet := slice -}}
+    {{ $imgSrc := "" -}}
+    {{ $imgSrcSet := slice -}}
 
-  {{ $widths := site.Params.landscapePhotoWidths -}}
-  {{ if gt $image.Height $image.Width -}}
-    {{ $widths = site.Params.portraitPhotoWidths -}}
-  {{ end -}}
+    {{ $widths := site.Params.landscapePhotoWidths -}}
+    {{ if gt $image.Height $image.Width -}}
+      {{ $widths = site.Params.portraitPhotoWidths -}}
+    {{ end -}}
 
-  {{ range $widths -}}
-    {{ $srcUrl := (printf "%dx webp picture" . | $image.Resize).Permalink -}}
-    {{ if eq $imgSrc "" -}}{{ $imgSrc = $srcUrl -}}{{ end -}}
-    {{ $imgSrcSet = $imgSrcSet | append (printf "%s %dw" $srcUrl .) -}}
-  {{ end -}}
-  {{ $imgSrcSet = (delimit $imgSrcSet ",") -}}
+    {{ range $widths -}}
+      {{ $srcUrl := (printf "%dx webp picture" . | $image.Resize).Permalink -}}
+      {{ if eq $imgSrc "" -}}{{ $imgSrc = $srcUrl -}}{{ end -}}
+      {{ $imgSrcSet = $imgSrcSet | append (printf "%s %dw" $srcUrl .) -}}
+    {{ end -}}
+    {{ $imgSrcSet = (delimit $imgSrcSet ",") -}}
 
-  {{ if gt $image.Width site.Params.smallLimit -}}
-    <figure class="figure" aria-label="Image">
-      <img class="{{ printf `%s %s` $class `lazyload blur-up`}}" data-sizes="auto" src="{{ $lqip.Permalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}">
-      <noscript><img class="{{ printf `%s` $class}}" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}"></noscript>
-      {{ with $.Title }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end -}}
-    </figure>
-  {{ else -}}
-    <img class="{{ printf `%s %s` $class `lazyload blur-up`}}" src="{{ $lqip.Permalink }}" data-src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}">
-  {{ end -}}
+    {{ if gt $image.Width site.Params.smallLimit -}}
+      <figure class="figure" aria-label="Image">
+        <img class="{{ printf `%s %s` $class `lazyload blur-up`}}" data-sizes="auto" src="{{ $lqip.Permalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}">
+        <noscript><img class="{{ printf `%s` $class}}" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}"></noscript>
+        {{ with $.Title }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end -}}
+      </figure>
+    {{ else -}}
+      <img class="{{ printf `%s %s` $class `lazyload blur-up`}}" src="{{ $lqip.Permalink }}" data-src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}">
+    {{ end -}}
+  {{ end }}
 {{ else -}}
   {{ erroridf "image-not-found" "Image not found" -}}
 {{ end -}}

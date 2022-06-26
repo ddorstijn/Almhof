@@ -124,16 +124,16 @@
     </div>
   </section>
 
-  <section>
+  <section class="facility">
     {{ $facilities := .Site.GetPage "/facilities" }}
     {{ $facilities := $facilities.Resources.ByType "page" }}
     {{ $facilities := cond .Site.BuildDrafts $facilities (where $facilities "Draft" "==" false) }}
     {{- range $facilities }}
-      <div class="facility">
-        {{ with .Params.icon }}
-          {{ . | safeHTML }}
+      <div class="facility__tile">
+        {{ with index .Params.Images 0 }}
+          {{ partial "main/image.html" (dict "Destination" .) }}
         {{end}}
-        <h3>{{ .Title }}</h3>
+        <span>{{ .Title }}</span>
       </div>
     {{ end }}
   </section>
